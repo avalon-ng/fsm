@@ -32,7 +32,9 @@ function makeFSM(stateMap, actions) {
       throw new Error(msg);
     }
     const action = getAction(actions, actionName);
-    state = action(state, payload);
+    // alow action to be no operation
+    const nextState = action(state, payload) || state;
+    state = nextState;
     status = transition(state, availableActions[actionName]);
   }
 

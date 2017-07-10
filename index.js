@@ -17,11 +17,13 @@ const stateMap = {
       'direction.turnLeft': 'stand',
       'direction.turnRight': 'stand',
       speedUp: speedStatus,
+      nop: 'stand',
     },
     walk: {
       'direction.turnLeft': 'walk',
       'direction.turnRight': 'walk',
       speedUp: speedStatus,
+      nop: 'walk',
     },
     run: {
       'direction.turnLeft': 'run',

@@ -10,4 +10,6 @@ module.exports = {
       speed: state.speed - 5
     });
   },
+
+  nop: () => {},
 };
