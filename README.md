@@ -12,12 +12,18 @@ const actions = {
 };
 
 const stateMap = {
+  // define initial status and state
+  // state can be object or anything..
   start: {
     status: 'init',
     state: 0,
   },
   states: {
+    // states keys are status name
     init: {
+      // action names, value can be string or function
+      // if == string => string is next status
+      // if == function => function() is next status
       plus1: 'plused'
     },
     plused: {
