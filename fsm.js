@@ -2,7 +2,7 @@ function makeFSM(stateMap, actions) {
   let status = stateMap.start.status;
   let state = stateMap.start.state;
 
-  function transition(state, action) {
+  function transit(state, action) {
     let nextStatus = '';
     if(typeof action == 'function') {
       nextStatus = action(state);
@@ -10,7 +10,7 @@ function makeFSM(stateMap, actions) {
       nextStatus = action;
     }
     if(!stateMap.states[nextStatus]) {
-      const msg = `cannot transist to status ${nextStatus} from ${status}`;
+      const msg = `cannot transit to status ${nextStatus} from ${status}`;
       console.warn(msg);
       nextStatus = status;
     }
@@ -35,7 +35,7 @@ function makeFSM(stateMap, actions) {
     // alow action to be no operation
     const nextState = action(state, payload) || state;
     state = nextState;
-    status = transition(state, availableActions[actionName]);
+    status = transit(state, availableActions[actionName]);
   }
 
   return {
